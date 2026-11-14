@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Генеалогическое древо семьи Собитовых</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Семейное древо - соединительные линии */
+    .family-tree ul {
+      padding-top: 32px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+
+    .family-tree li {
+      float: left;
+      text-align: center;
+      list-style-type: none;
+      position: relative;
+      padding: 32px 16px 0 16px;
+    }
+
+    /* Соединительные линии сверху */
+    .family-tree li::before,
+    .family-tree li::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 50%;
+      border-top: 2px solid #94a3b8;
+      width: 50%;
+      height: 32px;
+    }
+
+    .family-tree li::after {
+      right: auto;
+      left: 50%;
+      border-left: 2px solid #94a3b8;
+    }
+
+    /* Если элемент один — убираем горизонтальные ответвления */
+    .family-tree li:only-child::after,
+    .family-tree li:only-child::before {
+      display: none;
+    }
+
+    .family-tree li:only-child {
+      padding-top: 0;
+    }
+
+    /* Скругления для крайних веток */
+    .family-tree li:first-child::before {
+      border: 0 none;
+    }
+
+    .family-tree li:first-child::after {
+      border-radius: 12px 0 0 0;
+    }
+
+    .family-tree li:last-child::before {
+      border-right: 2px solid #94a3b8;
+      border-radius: 0 12px 0 0;
+    }
+
+    .family-tree li:last-child::after {
+      border: 0 none;
+    }
+
+    /* Линия вниз от родительского узла к ветке детей */
+    .family-tree ul ul::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      border-left: 2px solid #94a3b8;
+      width: 0;
+      height: 32px;
+      transform: translateX(-50%);
+    }
+
+    /* Кастомный аккуратный скроллбар */
+    .tree-container::-webkit-scrollbar {
+      height: 8px;
+    }
+    .tree-container::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 10px;
+    }
+    .tree-container::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 10px;
+    }
+    .tree-container::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-slate-50 via-indigo-50/40 to-slate-100 min-h-screen text-slate-800 pb-20">
+
+  <!-- Шапка страницы -->
+  <header class="pt-10 pb-6 px-4 text-center max-w-4xl mx-auto">
+    <div class="inline-flex items-center gap-2 bg-indigo-100 text-indigo-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-3 shadow-sm">
+      <i class="fa-solid fa-tree"></i> Генеалогическое древо
+    </div>
+    <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">
+      Семья <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">Собитовых</span>
+    </h1>
+    <p class="text-lg text-slate-600 max-w-xl mx-auto">
+      Здравствуйте! Я <strong class="text-indigo-600">Собитов Гуломкадыр</strong>, и это моя семья.
+    </p>
+
+
+  </header>
+
+  
+
+  <!-- Древо семьи -->
+  <main class="w-full max-w-7xl mx-auto px-4">
+    <div class="tree-container overflow-x-auto pb-10 pt-2">
+      <div class="family-tree min-w-max flex justify-center mx-auto px-6">
+        <ul>
+          <li>
+            <!-- 1-е ПОКОЛЕНИЕ: ДЕДУШКА СОБИТОВ И БАБУШКА ГУЛЬЯША -->
+            <div class="inline-flex items-center gap-5 bg-white/95 backdrop-blur border-2 border-amber-300 p-5 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition duration-300 relative">
+              <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-500 text-white text-[11px] font-bold uppercase tracking-wider px-3.5 py-0.5 rounded-full shadow">
+                1-е поколение • Старшие
+              </span>
+              
+              <!-- Дедушка Собитов -->
+              <div class="flex flex-col items-center w-36">
+                <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-amber-400 to-amber-200 p-0.5 shadow-md mb-2">
+                  <div class="w-full h-full bg-white rounded-full flex items-center justify-center text-amber-700 text-2xl font-bold">
+                    <i class="fa-solid fa-user-tie"></i>
+                  </div>
+                </div>
+                <h3 class="font-extrabold text-slate-900 text-base">Собитов</h3>
+                <p class="text-xs text-amber-600 font-semibold mt-0.5">Дедушка</p>
+                <span class="text-[11px] text-slate-400 mt-1">Глава рода</span>
+              </div>
+
+              <!-- Сердце / Союз -->
+              <div class="flex flex-col items-center justify-center text-rose-500">
+                <i class="fa-solid fa-heart text-2xl animate-pulse"></i>
+              </div>
+
+              <!-- Бабушка Гульяша -->
+              <div class="flex flex-col items-center w-36">
+                <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-rose-400 to-rose-200 p-0.5 shadow-md mb-2">
+                  <div class="w-full h-full bg-white rounded-full flex items-center justify-center text-rose-600 text-2xl font-bold">
+                    <i class="fa-solid fa-person-cane"></i>
+                  </div>
+                </div>
+                <h3 class="font-extrabold text-slate-900 text-base">Гульяша</h3>
+                <p class="text-xs text-rose-600 font-semibold mt-0.5">Бабушка</p>
+                <span class="text-[11px] text-slate-400 mt-1">Хранительница очага</span>
+              </div>
+            </div>
+
+            <!-- 2-е ПОКОЛЕНИЕ: ПАПА САМАДЖОН И МАМА ДАРДОРА -->
+            <ul>
+              <li>
+                <div class="inline-flex items-center gap-5 bg-white/95 backdrop-blur border-2 border-indigo-400 p-5 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition duration-300 relative">
+                  <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-[11px] font-bold uppercase tracking-wider px-3.5 py-0.5 rounded-full shadow">
+                    2-е поколение • Родители
+                  </span>
+
+                  <!-- Папа Самаджон -->
+                  <div class="flex flex-col items-center w-36">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-500 p-0.5 shadow-md mb-2">
+                      <div class="w-full h-full bg-white rounded-full flex items-center justify-center text-blue-600 text-2xl font-bold">
+                        <i class="fa-solid fa-user"></i>
+                      </div>
+                    </div>
+                    <h4 class="font-extrabold text-slate-900 text-base">Самаджон</h4>
+                    <span class="text-xs text-blue-600 font-bold mt-0.5">Папа</span>
+                    <span class="text-[11px] text-slate-500 mt-1">Отец семейства</span>
+                  </div>
+
+                  <!-- Обручальные кольца -->
+                  <div class="flex flex-col items-center justify-center text-rose-500">
+                    <i class="fa-solid fa-ring text-xl"></i>
+                  </div>
+
+                  <!-- Мама Дардора -->
+                  <div class="flex flex-col items-center w-36">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-pink-400 to-purple-400 p-0.5 shadow-md mb-2">
+                      <div class="w-full h-full bg-white rounded-full flex items-center justify-center text-pink-500 text-2xl font-bold">
+                          <i class="fa-solid fa-graduation-cap"></i>
+
+                      </div>
+                    </div>
+                    <h4 class="font-extrabold text-slate-900 text-base">Дардора</h4>
+                    <span class="text-xs text-pink-600 font-bold mt-0.5">Мама</span>
+                    <span class="text-[11px] text-slate-500 mt-1">Любимая мама</span>
+                  </div>
+                </div>
+
+                <!-- 3-е ПОКОЛЕНИЕ: ДЕТИ (ДИЯРА И ГУЛОМКАДЫР) -->
+                <ul>
+                  <!-- Старшая сестра Дияра -->
+                  <li>
+                    <div class="bg-white border-2 border-pink-200 p-5 rounded-3xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition duration-300 w-48 text-center relative group">
+                      <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-pink-100 text-pink-700 text-[10px] font-bold uppercase tracking-wider px-3 py-0.5 rounded-full border border-pink-200 shadow-sm">
+                        Старшая сестра
+                      </span>
+                      <div class="w-16 h-16 mx-auto rounded-full bg-gradient-to-tr from-pink-400 to-rose-300 p-0.5 shadow-md mb-2 mt-1">
+                        <div class="w-full h-full bg-white rounded-full flex items-center justify-center text-pink-500 text-2xl">
+                          <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                      </div>
+                      <h5 class="font-extrabold text-slate-900 text-base">Дияра</h5>
+                      <span class="inline-block bg-pink-50 text-pink-700 text-xs font-semibold px-3 py-1 rounded-full mt-1.5 border border-pink-100">
+                        Сестра
+                      </span>
+                    </div>
+                  </li>
+
+                  <!-- Я: ГУЛОМКАДЫР (ГЛАВНЫЙ ГЕРОЙ) -->
+                  <li>
+                    <div class="relative bg-gradient-to-b from-indigo-50 via-white to-white border-2 border-indigo-600 p-5 rounded-3xl shadow-2xl hover:shadow-indigo-200 hover:scale-105 transition-all duration-300 w-52 text-center ring-4 ring-indigo-100">
+                      <!-- Значок "ЭТО Я" -->
+                      <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-600 to-violet-600 text-white text-[11px] font-extrabold uppercase tracking-wider px-3.5 py-0.5 rounded-full shadow-md flex items-center gap-1.5">
+                        <i class="fa-solid fa-star text-amber-300 text-[11px]"></i> Это я!
+                      </span>
+
+                      <div class="w-18 h-18 mx-auto rounded-full bg-gradient-to-tr from-indigo-600 via-indigo-500 to-violet-500 p-0.5 shadow-lg mb-2 mt-1">
+                        <div class="w-full h-full bg-white rounded-full flex items-center justify-center text-indigo-600 text-3xl font-bold">
+                          <img class="w-[85px] h-[70px] rounded-[100px]" src="./images/я.jpg" alt="">
+                        </div>
+                      </div>
+                      <h5 class="font-extrabold text-slate-900 text-lg leading-tight">Гуломкадыр</h5>
+                      <p class="text-xs text-indigo-700 font-bold mt-0.5">Собитов</p>
+                      </span>
+                    </div>
+                  </li>
+                </ul>
+
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+  </main>
+
+
+
+</body>
+
+</html>
